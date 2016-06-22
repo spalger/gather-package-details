@@ -3,13 +3,13 @@
 import expect from 'expect.js'
 import { resolve } from 'path'
 
-import { gather } from '../src'
+import gatherPackageDetails from '../src'
 
 const basic = resolve.bind(null, __dirname, '../fixtures/basic-project')
 
 describe('gather', () => {
   it('discovers the packages that paths belong to', async () => {
-    const { project, unresolved } = await gather({
+    const { project, unresolved } = await gatherPackageDetails({
       projectRoot: basic(),
       modulePaths: [
         basic('index.js'),
@@ -56,7 +56,7 @@ describe('gather', () => {
   })
 
   it('ignores packages that do not match a module path', async () => {
-    const { project, unresolved } = await gather({
+    const { project, unresolved } = await gatherPackageDetails({
       projectRoot: basic(),
       modulePaths: [
         basic('index.js'),
@@ -74,7 +74,7 @@ describe('gather', () => {
   })
 
   it('reports paths that do not match a package', async () => {
-    const { unresolved } = await gather({
+    const { unresolved } = await gatherPackageDetails({
       projectRoot: basic(),
       modulePaths: [
         basic('index.js'),
@@ -85,5 +85,24 @@ describe('gather', () => {
     })
 
     expect(unresolved).to.eql([basic('node_modules/unkown-dep/someOther.js')])
+  })
+
+  it('supports overriding the license information for specific modules', async () => {
+    const { project } = await gatherPackageDetails({
+      projectRoot: basic(),
+      licenseOverrides: {
+        'left-pad@0.1.0': 'SPACEMAN',
+      },
+      modulePaths: [
+        basic('index.js'),
+        basic('node_modules/left-pad/index.js'),
+      ],
+    })
+
+    expect(project.children[0])
+      .to.have.property('name', 'left-pad')
+      .and.have.property('licenses')
+
+    expect(project.children[0].licenses).to.eql(['SPACEMAN'])
   })
 })

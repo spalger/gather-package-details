@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "@gather-package-details/examples",
+  "version": "1.2.0",
+  "main": "getLicenses.js",
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "lodash": "^4.13.1"
+  }
+}

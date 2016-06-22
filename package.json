@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel -d dist --source-maps inline src",
     "test": "mocha -r source-map-support/register -r babel-register",
-    "prepublish": "npm test && npm run build"
+    "prepublish": "npm test && npm run build",
+    "babel": "babel-node"
   },
   "repository": {
     "type": "git",

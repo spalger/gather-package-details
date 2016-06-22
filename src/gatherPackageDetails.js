@@ -5,7 +5,7 @@ import { Package } from './Package'
 import { ModulePaths } from './ModulePaths'
 import { Licenses } from './Licenses'
 
-export const gather = async (opts) => {
+export const gatherPackageDetails = async (opts) => {
   if (!opts) {
     throw new TypeError('gather requires an options object with at least `projectRoot` set')
   }
