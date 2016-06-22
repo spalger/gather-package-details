@@ -1,0 +1,1 @@
+export { analyzePaths } from './analyze'

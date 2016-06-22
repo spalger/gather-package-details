@@ -1,0 +1,9 @@
+{
+  "name": "basic-project",
+  "version": "1.2.3",
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "test-dep": "*"
+  }
+}

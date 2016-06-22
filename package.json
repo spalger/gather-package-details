@@ -1,0 +1,49 @@
+{
+  "name": "gather-package-details",
+  "version": "0.0.0",
+  "description": "Scan the node modules relating to a list of files to learn their license, version, and other information",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel -d dist --source-maps inline src",
+    "test": "mocha -r source-map-support/register -r babel-register",
+    "prepublish": "npm test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/spalger/gather-package-details.git"
+  },
+  "keywords": [
+    "dependencies",
+    "npm",
+    "dll",
+    "licenses"
+  ],
+  "author": "Spencer Alger <email@spalger.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spalger/gather-package-details/issues"
+  },
+  "homepage": "https://github.com/spalger/gather-package-details#readme",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "chalk": "^1.1.3",
+    "license-checker": "^5.1.2",
+    "lodash": "^4.13.1",
+    "memory-fs": "^0.3.0",
+    "read-package-tree": "^5.1.4"
+  },
+  "devDependencies": {
+    "@spalger/babel-presets": "0.0.1",
+    "@spalger/eslint-config-personal": "^0.4.0",
+    "babel-cli": "^6.10.1",
+    "babel-eslint": "^6.0.5",
+    "babel-register": "^6.9.0",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.5.3"
+  }
+}
