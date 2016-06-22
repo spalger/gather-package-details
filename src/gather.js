@@ -5,9 +5,9 @@ import { Package } from './Package'
 import { ModulePaths } from './ModulePaths'
 import { Licenses } from './Licenses'
 
-export const analyzePaths = async (opts) => {
+export const gather = async (opts) => {
   if (!opts) {
-    throw new TypeError('analyzePaths requires an options object with at least `projectRoot` set')
+    throw new TypeError('gather requires an options object with at least `projectRoot` set')
   }
 
   const {

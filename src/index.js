@@ -1,1 +1,1 @@
-export { analyzePaths } from './analyze'
+export { gather } from './gather'

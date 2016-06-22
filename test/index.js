@@ -3,13 +3,13 @@
 import expect from 'expect.js'
 import { resolve } from 'path'
 
-import { analyzePaths } from '../src'
+import { gather } from '../src'
 
 const basic = resolve.bind(null, __dirname, '../fixtures/basic-project')
 
-describe('analyzePaths', () => {
+describe('gather', () => {
   it('discovers the packages that paths belong to', async () => {
-    const { project, unresolved } = await analyzePaths({
+    const { project, unresolved } = await gather({
       projectRoot: basic(),
       modulePaths: [
         basic('index.js'),
@@ -56,7 +56,7 @@ describe('analyzePaths', () => {
   })
 
   it('ignores packages that do not match a module path', async () => {
-    const { project, unresolved } = await analyzePaths({
+    const { project, unresolved } = await gather({
       projectRoot: basic(),
       modulePaths: [
         basic('index.js'),
@@ -74,7 +74,7 @@ describe('analyzePaths', () => {
   })
 
   it('reports paths that do not match a package', async () => {
-    const { unresolved } = await analyzePaths({
+    const { unresolved } = await gather({
       projectRoot: basic(),
       modulePaths: [
         basic('index.js'),
