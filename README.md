@@ -36,3 +36,7 @@ The `Package` class represents a node package, identified by a directory contain
  - `directory` - the directory where the package was found
  - `licenses` - An array of license identifiers which this package advertises, or the values passed in via the `licenseOverrides` option.
  - `children` - An array of sub-`Package`s that were found
+
+# other modules
+
+This module is simply a wrapper around [license-checker](https://www.npmjs.com/package/license-checker) and [read-package-tree](https://www.npmjs.com/package/read-package-tree), if you are looking for more low-level tools I suggest using those.
