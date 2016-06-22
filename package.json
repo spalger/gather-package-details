@@ -1,6 +1,6 @@
 {
   "name": "gather-package-details",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Scan the node modules relating to a list of files to learn their license, version, and other information",
   "main": "dist/index.js",
   "scripts": {
